@@ -121,3 +121,12 @@ void liberarMemoria(Tarea ** lista, int n)
 	}
 	free(lista);
 }
+
+Tarea * buscarPorPalabra(Tarea ** lista, int n, char * palabra)
+{	
+	for (int i = 0 ; i < n ; i++)
+	    if (strstr((lista[i])->Descripcion, palabra))
+	        return lista[i];
+	
+	return NULL;
+}
