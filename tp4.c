@@ -111,6 +111,14 @@ void estadoTarea(Tarea ** toDo, Tarea ** done, int n)
 	}
 }
 
+Tarea * buscarPorID(Tarea ** lista, int n, int id)
+{
+	if (id > n)
+		return NULL;
+	else
+		return lista[id - 1];
+}
+
 void liberarMemoria(Tarea ** lista, int n)
 {
 	for (int i = 0 ; i < n ; i++)
