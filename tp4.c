@@ -28,6 +28,7 @@ int main()
 
     int cantidad;
     char palabra[N];
+	int id;
     Tarea tarea;
     Tarea ** toDo;
     Tarea ** done;
@@ -40,6 +41,22 @@ int main()
     printf("\n REVISION DE TAREAS \n");
     estadoTarea(toDo, done, cantidad);
     
+	printf("\n BUSCAR TAREAS POR PALABRA CLAVE \n");
+    printf("Ingrese una palabra clave para buscar una tarea: ");
+	scanf(" %s", palabra);
+	if(buscarPorPalabra(toDo, cantidad, palabra))
+		mostrarTarea(buscarPorPalabra(toDo, cantidad, palabra));
+	else
+		printf("No se encontraron coincidencias.\n");
+	printf("\n"); 
+	printf("\n BUSCAR TAREAS POR ID \n");
+    printf("Ingrese una ID de una tarea: (entre 1 y %d)\n", cantidad);
+	scanf(" %d", &id);
+	if(buscarPorID(toDo, cantidad, id))
+		mostrarTarea(buscarPorID(toDo, cantidad, id));
+	else
+		printf("No se encontraron coincidencias.\n");
+	printf("\n");  
     
 
     liberarMemoria(toDo, cantidad);
